@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20191030204814_InitialIdentityServerConfigurationDbMigration.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\ConfigurationDb\20191030204814_InitialIdentityServerConfigurationDbMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\PersistedGrantDb\20191030204739_InitialIdentityServerPersistedGrantDbMigration.cs" />
+    <Compile Remove="Data\Migrations\IdentityServer\PersistedGrantDb\20191030204739_InitialIdentityServerPersistedGrantDbMigration.Designer.cs" />
+    <Compile Remove="Migrations\20191030210329_initialcrmcontextdbmigration.cs" />
+    <Compile Remove="Migrations\20191030210329_initialcrmcontextdbmigration.Designer.cs" />
+    <Compile Remove="Migrations\20191114172221_Snapshot_1.cs" />
+    <Compile Remove="Migrations\20191114172221_Snapshot_1.Designer.cs" />
+    <Compile Remove="Migrations\20191115203258_snapshot_1.cs" />
+    <Compile Remove="Migrations\20191115203258_snapshot_1.Designer.cs" />
+    <Compile Remove="Migrations\20191117230814_snapshot_2.cs" />
+    <Compile Remove="Migrations\20191117230814_snapshot_2.Designer.cs" />
+    <Compile Remove="Migrations\20191119061853_snapshot-3.cs" />
+    <Compile Remove="Migrations\20191119061853_snapshot-3.Designer.cs" />
+    <Compile Remove="Migrations\20191119062354_snapshot-3.cs" />
+    <Compile Remove="Migrations\20191119062354_snapshot-3.Designer.cs" />
+    <Compile Remove="Migrations\20191119062650_snapshot-3.cs" />
+    <Compile Remove="Migrations\20191119062650_snapshot-3.Designer.cs" />
+    <Compile Remove="Migrations\20191119112123_snapshot-4.cs" />
+    <Compile Remove="Migrations\20191119112123_snapshot-4.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="2.5.4" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.5.4" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="2.5.4" />
+    <PackageReference Include="MailKit" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Azure.Storage.Blob" Version="11.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\IdentityServer\ConfigurationDb\" />
+    <Folder Include="Data\Migrations\IdentityServer\PersistedGrantDb\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

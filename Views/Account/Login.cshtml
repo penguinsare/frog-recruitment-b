@@ -1,0 +1,100 @@
+@model LoginViewModel
+
+<div class="login-page">
+    <div class="page-header">
+        <div lass="main-logo">
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center ">
+            <div class="col align-self-center col-sm-11 col-md-7 col-lg-5 col-xl-5 ">
+                <img class="logo-image" src="~/image_full_white.png" />
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col align-self-center col-sm-12 col-md-9 col-lg-7 col-xl-7 border-bottom mt-5">
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            @if (Model.EnableLocalLogin)
+            {
+                <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6 align-self-center mt-5">
+                    <div class="">
+                        <div class=" align-self-center">
+
+                            <form asp-route="Login">
+                                <input type="hidden" asp-for="ReturnUrl" />
+
+                                <fieldset>
+                                    <div>
+                                        <label asp-for="Username"></label>
+                                        <input class="form-control" asp-for="Username" autofocus>
+                                    </div>
+                                    <div class="mt-2">
+                                        <label asp-for="Password"></label>
+                                        <input type="password" class="form-control" asp-for="Password" autocomplete="off">
+                                        <div class="row justify-content-end">
+                                            <div class="col-auto align-self-end ">
+                                                <a asp-controller="Account" asp-action="SendReset">Recover password</a>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                    <div class="mt-4">
+                                        <button class="btn frog-background btn-block" name="button" value="login">Login</button>
+                                     </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.VisibleExternalProviders.Any())
+            {
+                <div class="col-md-6 col-sm-6 external-providers">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">External Login</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-inline">
+                                @foreach (var provider in Model.VisibleExternalProviders)
+                                {
+                                    <li>
+                                        <a class="btn btn-default"
+                                           asp-controller="External"
+                                           asp-action="Challenge"
+                                           asp-route-provider="@provider.AuthenticationScheme"
+                                           asp-route-returnUrl="@Model.ReturnUrl">
+                                            @provider.DisplayName
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
+            {
+                <div class="alert alert-warning">
+                    <strong>Invalid login request</strong>
+                    There are no login schemes configured for this client.
+                </div>
+            }
+        </div>
+        <br />
+        <br />
+        <div class="row justify-content-center">
+            <div class="col align-self-center col-sm-12 col-md-8 col-lg-6 col-xl-6">
+                <partial name="_ValidationSummary" />
+            </div>
+
+        </div>
+    </div>
+</div>
